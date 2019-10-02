@@ -56,8 +56,6 @@ class Enemy(arcade.Sprite):
         super().__init__("assets/penguin.png", 0.5)
         self.hp = ENEMY_HP
         (self.center_x, self.center_y) = position
-
-
         
 
 
@@ -94,9 +92,7 @@ class Window(arcade.Window):
                     self.score += KILL_SCORE
                     e.kill()
                     self.bullet_list[0].kill()
-                
-                
-
+                    
             
 
     def on_draw(self):
@@ -128,5 +124,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-sys.exit("Enjoy!")
