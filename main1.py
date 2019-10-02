@@ -80,7 +80,7 @@ class Window(arcade.Window):
         Set up enemies
         '''
         for i in range(NUM_ENEMIES):
-            x = 120 * (i+1) + 40
+            x = 120 * (i+.5) + 60
             y = 500
             enemy = Enemy((x,y))
             self.enemy_list.append(enemy)   
@@ -94,9 +94,7 @@ class Window(arcade.Window):
                     self.score += KILL_SCORE
                     e.kill()
                     self.bullet_list[0].kill()
-                else:
-                    self.score += HIT_SCORE
-                    self.bullet_list[0].kill()
+                
                 
 
             
@@ -113,12 +111,13 @@ class Window(arcade.Window):
         The player moves left and right with the mouse
         '''
         self.player.center_x = x
+        self.player.center_y = y
 
     def on_mouse_press(self, x, y, button, modifiers):
-        if button == arcade.MOUSE_BUTTON_LEFT:
+        if button == arcade.MOUSE_BUTTON_RIGHT:
             x = self.player.center_x
-            y = self.player.center_y + 15
-            bullet = Bullet((x,y), (o,10), BULLET_DAMAGE)
+            y = self.player.center_y 
+            bullet = Bullet((x,y), (0,5), BULLET_DAMAGE)
             self.bullet_list.append(bullet)
 
 def main():
@@ -129,3 +128,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+sys.exit("Enjoy!")
