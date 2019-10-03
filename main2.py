@@ -39,8 +39,6 @@ class Bullet(arcade.Sprite):
         '''
         self.center_x += self.dx
         self.center_y += self.dy
-
-
     
 class Player(arcade.Sprite):
     def __init__(self):
@@ -57,6 +55,16 @@ class Enemy(arcade.Sprite):
         self.hp = ENEMY_HP
         (self.center_x, self.center_y) = position
         
+class EnemyBullet(arcade.Sprite):
+    def __init__(self, position, velocity, damage):
+        super().__init__("assets/enemy_bullet.png", 0.5)
+        (self.center_x, self.center_y) = position
+        (self.dx, self.dy) = velocity
+        self.damage = damage
+
+    def update(self):
+        self.center_x += self.dx
+        self.center_y += self.dy
 
 
 class Window(arcade.Window):
